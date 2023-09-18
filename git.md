@@ -11,6 +11,8 @@ $ git config --global user.email <email>
 working directory는 코딩을 짜는 곳이다. staging area는 무대다 git init은 git directory와 같다.
 저장을 한 다음 작업을 하는 것을 추천한다. 
 
+![죠르디](assets/image2.png)
+
 ## 로컬명령어
 - `git init`
     - `.git` repository를 생성하는 명령어
@@ -33,11 +35,15 @@ working directory는 코딩을 짜는 곳이다. staging area는 무대다 git i
 깃은 브렌치 시스템을 따른다. 브렌치는 나뭇가지라는 뜻이다. 커밋은 점이다. 나무의 중심기둥은 마스터이다. 
 > 기존에 마스터로 쓰였지만 인종차별 문제로 인해 main으로 쓰기도 한다.
 
+
+ 
+## 원격저장소
+
 `git remote add origin https://github.com/micenicen/TIL.git`에 대해 설명해본다면 다음과 같다.
 1. 깃을 사용하여 추가한다.
 2. 오리진이라는 이름으로 해당 도메인을 업로드할 것이다.
- 
-## 원격저장소
+
+
 - `git remote`
     - 원격저장소 주소를 관리하기 위한 명렁어
     - `git remote add origin <url>`
