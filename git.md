@@ -11,7 +11,7 @@ $ git config --global user.email <email>
 working directory는 코딩을 짜는 곳이다. staging area는 무대다 git init은 git directory와 같다.
 저장을 한 다음 작업을 하는 것을 추천한다. 
 
-![죠르디](assets/image2.png)
+![깃 init](assets/image2.png)
 
 ## 로컬명령어
 - `git init`
@@ -51,4 +51,9 @@ working directory는 코딩을 짜는 곳이다. staging area는 무대다 git i
 - `git push`
     - 원격 저장소에 로컬 코드를 업로드 하기 위한 명령어
     - `git push <remote> <branch>`
+    - 오리진으로 도메인을 업로드 했다면 `git push origin master`와 같은 방식으로 업로드 한다.
+- `git pull`
+    - 원격 저정소에 로컬코드를 다온로드 하기 위한 명령어
+    - `git pull origin master`와 같은 방식으로 자료를 다운로드 한다.
+    - 만약 업로드할 당시 충돌이 발생하면 먼저 pull을 한 다음 충돌이 난 부분을 교체한다.
 
