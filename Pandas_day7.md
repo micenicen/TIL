@@ -58,3 +58,71 @@ input_pw = driver.find_elements("css selector", "input._aa4b._add6._ac4d")[1]
 ```
 현재와 같이 클래스 이름을 주면서 로그인을 할 수 있다.
 
+### 3. 키워드 탐색
+이제 키워드를 탐색해보자. 교육예시로 울릉도 맛집이라는 키워드를 검색한 결과페이지를 사용해보자.
+
+```python
+# https://www.instagram.com/explore/tags/%EC%9A%B8%EB%A6%89%EB%8F%84%EB%A7%9B%EC%A7%91/
+```
+현재와 같은 방식으로 나타난다. 퍼센트글자는 한글문자를 풀어서 유니코드로 변환한 결과를 나타낸 것이다.
+
+이제 드라이버에 주소를 대입해서 가동해보자.
+```python
+driver.get("https://www.instagram.com/explore/tags/%EC%9A%B8%EB%A6%89%EB%8F%84%EB%A7%9B%EC%A7%91/")
+time.sleep(1)
+```
+### 3.1 키워드 탐색 - 또 다른 방법
+워드를 태그 앞에 대입해도 같은 방법으로 결과가 도출된다.
+
+```python
+word = "울릉도맛집"
+driver.get("https://www.instagram.com/explore/tags/"+word)
+time.sleep(1)
+```
+
+### 4. 피드 살펴보기
+먼저 첫번째 게시글을 클릭해야 한다. 그리고 두 번째 게시글과 주소를 비교하여 차이를 살펴본다.
+문제는 인스타그램은 피드를 넘길 경우 주소가 불규칙한 패턴으로 변경되는 것을 볼 수 있다. 
+
+또 다른 방법으로는 게시판의 클래스를 보고 다른 게시글과 연관성이 있는지 확인하는 것이다. 재밌는 점은 인스타 게시글은 모든 클래스 이름이 동일하다는 것이다. 
+
+```python
+driver.find_elements("css selector","#mount_0_0_2h > div > div > div.x9f619.x1n2onr6.x1ja2u2z > div > div > div > div.x78zum5.xdt5ytf.x1t2pt76.x1n2onr6.x1ja2u2z.x10cihs4 > div.x9f619.xvbhtw8.x78zum5.x168nmei.x13lgxp2.x5pf9jr.xo71vjh.x1uhb9sk.x1plvlek.xryxfnj.x1c4vz4f.x2lah0s.x1q0g3np.xqjyukv.x1qjc9v5.x1oa3qoh.x1qughib > div.x1gryazu.xh8yej3.x10o80wk.x14k21rp.x17snn68.x6osk4m.x1porb0y > section > main > article > div > div > div > div:nth-child(1) > div:nth-child(1) > a > div._aagu > div._aagw")[0]
+```
+셀렉터 링크가 너무 길다. 이럴때는 클래스명을 가져와서 표시하는 것도 하나의 방법이다. 
+```python
+driver.find_elements("css selector","div._aagw")
+```
+인스타그램의 게시물 28개가 상당히 깔끔하게 나온다. 
+```python
+first = driver.find_elements("css selector","div._aagw")[0]
+first.click()
+```
+코드를 작동시켜보자.
+
+### 5. 피드 내부 버튼 조작하기
+```python
+btn1 = driver.find_elements("css selector", "button> div > span > svg.x1lliihq.x1n2onr6")
+btn1[button_count].click()
+if button_count == 0:
+    button_count += 1
+```
+인스타그램의 클릭 매커니즘은 다음과 같다.
+1. 버튼클릭 요소는 상황에 따라 다르다. 
+- 맨 처음칸에서는 btn1[0]이 다음 칸이다. 두번째 칸부터 btn1[1]이 다음 칸으로 변경된다.
+- 그렇기에 if문을 사용하여 1을 증가시켰다.
+2. 버튼은 특정 클래스를 사용해야 한다.
+- 또 다른 버튼 클래스는 댓글보기 버튼이다. 
+3. 타임슬립이 어느정도 필요하다.
+- 댓글로딩으로 인해서 바로 작동시키는 것은 권장하지 않는다.
+
+## 판다스 조작 노하우
+### 1. 오류 예외처리하는 요령
+코드가 제대로 수행되어질 수 없는 상황이 생기면 자동으로 오류가 발생한다. 오류 메세지가 나올 것을 대비해서 어떤 식으로 처리하라고 지시할 수 있다.
+
+예를 들어 다음과 같은 함수가 있다고 가정해보자.
+```python
+def trycatch(x):
+    return 1/x
+trycatch(2)
+```
