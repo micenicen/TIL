@@ -138,7 +138,16 @@ re.findall("#[^[\s]+",content)
 >['#냥꼬네게스트하우스','#관음도🏷️','#나리분지🏷️'#함스타']
 
 ### 7. 좋아요 가져오기
-
+좋아요 갯수를 가져오는 것은 이전에 하던 방식과 같다.
+```python
+soup.select("div._ae2s._ae3v._ae3w > section._ae5m._ae5n._ae5o > div > div > span > a > span")[0].text
+```
+>좋아요 724개
+정규표현식을 이용하여 좋아요 가져오는 방법을 사용할 수 있다. 
+```python
+int(re.findall("\d+",soup.select("a>span")[-2].text)[0])
+```
+>724
 
 
 ## 판다스 조작 노하우
@@ -180,3 +189,86 @@ except:
     print("애러가 발생했습니다.")
 ```
 애러의 종류와 상관없이 예외처리를 하고자 하면 그냥 except를 실행시키면 된다. 
+
+### 2. 데이터 시리즈 결측값 조사하기
+```python
+float_data = pd.Series([1.2, -3.5, np.nan, 0])
+float_data
+```
+>0    1.2  
+1   -3.5  
+2    NaN  
+3    0.0
+dtype: float64
+
+여기서 na인 값만 조사하면 다음과 같다. 
+```python
+float_data.isna()
+```
+>0    False  
+1    False  
+2     True  
+3    False  
+dtype: bool
+
+반대로 notna함수도 존재한다. na값이 아닌 것을 True로 반환한다. 
+```python
+float_data.notna()
+```
+>0     True
+1     True  
+2    False  
+3     True  
+dtype: bool
+
+### 3. 데이터프레임 결측값 
+```python
+pd.DataFrame([[1., 6.5, 3.], [1., np.nan, np.nan],
+                     [np.nan, np.nan, np.nan], [np.nan, 6.5, 3.]])
+```
+>==0==1==2  
+0	1.0	6.5	3.0  
+1	1.0	NaN	NaN  
+2	NaN	NaN	NaN  
+3	NaN	6.5	3.0  
+
+기준 데이터는 data로 정의한다고 하자. 
+```python
+data.dropna()
+```
+>==0==1==2  
+0	1.0	6.5	3.0
+
+결측값이 하나라도 있으면 모두 드랍한다.
+
+```python
+data.dropna(how = "all")
+```
+>	==0==	1==	2  
+0	1.0	6.5	3.0  
+1	1.0	NaN	NaN  
+3	NaN	6.5	3.0  
+
+how 조건을 추가하여 모든 요소가 결측값일 경우 드랍한다는 조건으로 **제일 많이 쓰이는 식이다.** 
+```python
+data[2] = np.nan
+```
+데이터 2번 인덱스에 nan을 추가하라는 명령이다.
+
+
+```python
+data.dropna(how = "all", axis = 1)
+```
+>	==0	==1  
+0	1.0	6.5  
+1	1.0	NaN  
+2	NaN	NaN  
+3	NaN	6.5
+
+만약 열 단위로 삭제하고자 할 경우 axis로 조건을 부여한다. 
+
+### 4. 데이터프레임 중복값
+```python
+pd.DataFrame({"k1": ["one", "two"] * 3 + ["two"],
+                     "k2": [1, 1, 2, 3, 3, 4, 4]})
+```

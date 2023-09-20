@@ -1,0 +1,149 @@
+1
+"비트코인" 문자열을 화면에 출력하는 print_coin() 함수를 정의하라.
+
+2
+1 번에서 정의한 함수를 호출하라.
+ 
+3
+1 번에서 정의한 함수를 100번호출하라.
+
+4
+"비트코인" 문자열을 100번 화면에 출력하는 print_coins() 함수를 정의하라. 한 라인에 하나씩 "비트코인" 문자열을 출력한다.
+
+5
+아래의 에러가 발생하는 이유에 대해 설명하라.
+
+hello()
+def hello():
+    print("Hi")
+NameError: name 'hello' is not defined
+ 
+6
+아래 코드의 실행 결과를 예측하라.
+
+def message() :
+    print("A")
+    print("B")
+
+message()
+print("C")
+message()
+ 
+7
+아래 코드의 실행 결과를 예측하라. 
+print("A")
+
+def message() :
+    print("B")
+
+print("C")
+message()
+ 
+8
+아래 코드의 실행 결과를 예측하라. 
+
+print("A")
+def messages1() :
+    print("B")
+print("C")
+def messages2() :
+    print("D")
+message1()
+print("E")
+message2()
+ 
+9
+아래 코드의 실행 결과를 예측하라.
+
+def message1()
+    print("A")
+
+def message2()
+    print("B")
+    message1()
+
+message2()
+ 
+10
+아래 코드의 실행 결과를 예측하라.
+
+def message1()
+    print("A")
+
+def message2()
+    print("B")
+
+
+def message3()
+    for i in range (3) :
+        message2()
+        print("C")
+    message1()
+
+message3()
+ 
+
+11
+함수의 호출 결과를 예측하라.
+
+def 함수(문자열) :
+    print(문자열)
+
+함수("안녕")
+함수("Hi")
+ 
+12
+함수의 호출 결과를 예측하라.
+
+def 함수(a, b) :
+    print(a + b)
+
+함수(3, 4)
+함수(7, 8)
+ 
+13
+아래와 같은 에러가 발생하는 원인을 설명하라.
+
+def 함수(문자열) :
+    print(문자열)
+함수()
+TypeError: 함수() missing 1 required positional argument: '문자열'
+ 
+14
+아래와 같은 에러가 발생하는 원인을 설명하라.
+
+def 함수(a, b) :
+    print(a + b)
+
+함수("안녕", 3)
+TypeError: must be str, not int
+ 
+15
+하나의 문자를 입력받아 문자열 끝에 ":D" 스마일 문자열을 이어 붙여 출력하는 print_with_smile 함수를 정의하라.
+
+ 
+16
+015에서 정의한 함수를 호출하라. 파라미터는 "안녕하세요"로 입력하라.
+
+ 
+17
+현재 가격을 입력 받아 상한가 (30%)를 출력하는 print_upper_price 함수를 정의하라.
+
+ 
+18
+두 개의 숫자를 입력받아 두 수의 합을 출력하는 print_sum 함수를 정의하라.
+
+ 
+19
+두 개의 숫자를 입력받아 합/차/곱/나눗셈을 출력하는 print_arithmetic_operation 함수를 작성하라.
+
+print_arithmetic_operation(3, 4)
+3 + 4 = 7
+3 - 4 = -1
+3 * 4 = 12
+3 / 4 = 0.75
+ 
+20
+세 개의 숫자를 입력받아 가장 큰수를 출력하는 print_max 함수를 정의하라. 단 if 문을 사용해서 수를 비교하라.
+
+ 
