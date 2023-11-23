@@ -7,20 +7,34 @@
     <form>
         <p>Checked</p>
         <!-- 사용자가 입력하는 입력 양식 -->
+        <!-- 네임은 상자의 이름이고 밸류는 상자 안의 값이다.  -->
+        <!-- 네임은 지정값이다. 만약 아이디나 비밀번호를 작성하지 않아서 강제로 이동시킬때 네임을 사용한다. -->
+        <!-- 검증기능은 자바스크립트로 작성한다. 외형적인것만 html에서 작성된다. -->
         <input type="text" name="text" value="text"><br>
         <input type="password" name="password" value="password"><br>
+        <!-- 외부파일을 가져올 수 있는 기능이다.  -->
         <input type="file" name="file" value="file"><br>
+        <!-- 체크박스는 선택이 자유롭다.  -->
         <input type="checkbox" name="checkbox" value="checkbox"><br>
+        <!-- 라디오버튼은 선택하고 해제가 되지 않는다. 여러개를 만들고 하나를 선택하는 방식이다. -->
         <input type="radio" name="radio" value="radio"><br>
 
-        <!-- 보이지 않는 입력 양식 -->
+        <!-- 보이지 않는 입력 양식이다. 히든은 사용자 입장에서 볼 수 없다.  -->
+        <!-- 사용자에게 보여줄 필요가 없는 것을 히든으로 설정한다.  -->
+        <!-- 회원가입을 안해도 서버에서 발급하는 토큰인 세션아이디가 존재한다.  -->
+        <!-- 로그인을 안해도 우리가 누군지 아는 것이다. 세션아이디로 식별하는 것이다. -->
         <input type="hidden" name="hidden" value="hidden"><br>
 
-        <!-- 버튼 -->
+        <!-- 기본적인 버튼이다. 특수한 동작을 지정하는 버튼이다. -->
         <input type="button" value="button"><br>
+        <!-- 초기화버튼이다. 라디오버튼을 해제하는 유일한 버튼이다.  -->
         <input type="reset" value="reset"><br>
+        <!-- 서브밋은 서버로 넘기는 버튼이다. 서버와 연결되어있는 특수버튼이다. -->
         <input type="submit" value="submit"><br>
         <input type="image" src="http://via.placeholder.com/100x100"><br>
     </form>
 </body>
 </html>
+
+<!-- 폼태그로 된 타입들은 전송버튼을 누르면 전송이 되어야 한다. -->
+<!-- 폼 뒤에 src나 action같은 속성을 지정할 수 있다.-->
