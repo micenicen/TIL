@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      // 변수를 선언합니다.
+      const rawInput = prompt('년도를 입력하세요.','')
+      const year = Number(rawInput)
+
+      // 조건문
+      switch (true) {
+        case year%400 == 0:
+          alert('윤년입니다.')
+          break
+        case year%100 == 0:
+          alert('평년입니다.')
+          break
+        case year%4 == 0:
+          alert('윤년입니다.')
+          break
+        default:
+          alert('평년입니다.')
+          break
+      }
+    </script>
+  </head>
+  <body>      
+  </body>
+</html>
+<!-- if문의 또 다른 방식이다. 다양한 방식으로 활용 가능하다.  -->
+

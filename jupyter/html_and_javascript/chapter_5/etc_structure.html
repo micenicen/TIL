@@ -8,8 +8,8 @@
             list-style: none;
             float: left; padding: 15px;
         }
-        li:first-child { border-radius: 10px 0 0 10px; }
-        li:last-child { border-radius: 0 10px 10px 0; }
+        li:first-child { border-radius: 20px 0 0 10px; }
+        li:last-child { border-radius: 0 10px 20px 0; }
         
         li:nth-child(2n) { background-color: #FF0003; }
         li:nth-child(2n+1) { background-color: #800000; }
@@ -27,3 +27,10 @@
     </ul>
 </body>
 </html>
+
+<!-- 짝수번째와 홀수번째의 배경색을 설정하는 방법이다.  
+first child는 첫번째 칸을 말하고 last child는 마지막 칸을 말한다. 
+재밌는 점은 px크기가 커질수록 더 둥그스름해진다. 4개의 위치는 11시,2시 5시 7시 방향의 모양을 말한다.  
+float 속성은 정렬 속성이다. 왼쪽 정렬, 오른쪽 정렬, None 속성은 비정렬이다.
+오브플로우는 만약 글자가 넘어가면 보이지 말라는 옵션이다. 
+홈페이지 상단 메뉴를 작성할 경우에 많이 쓰인다. -->

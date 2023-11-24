@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      // 변수를 선언합니다.
+      const input = Number(prompt("숫자를 입력하세요.", "숫자"))
+
+      // 조건문
+      switch (input % 2) {
+        case 0:
+          alert("짝수입니다.")
+          break
+        case 1:
+          alert("홀수입니다.")
+          break
+        default:
+          alert("숫자가 아닙니다.")
+          break
+      }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
+<!-- 위는 파이썬으로는 int(input('숫자입력'))으로 표현 가능하다.
+  스위치는 다른 방식의 if문이다. 스위치는 case와 break가 항상 따라다닌다. 
+  여기서 0을 거짓으로 보고 1을 트루로 본다.즉 나눈 값이 0이면 거짓으로 취급되고 1이면 참으로 취급되는 것이다. 
+  break는 중간에서 빠져나가자는 명령이다.  만약 break가 없으면 계속 밑으로 내려가서 default까지 간다. -->

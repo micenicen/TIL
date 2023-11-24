@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      // 변수를 선언합니다.
+      const date = new Date()
+      const hour = date.getHours()
+
+      // if else if 조건문
+      if (hour < 11) {
+        // 표현식 hour < 11가 참일 때 실행합니다.
+        alert('아침 먹을 시간입니다.')  
+      } else if (hour < 15) {
+        // 표현식 hour < 11가 거짓이고 표현식 hour < 15가 참일 때 실행합니다.
+        alert('점심 먹을 시간입니다.')
+      } else {
+        // 표현식 hour < 15가 거짓일 때 실행합니다.
+        alert('저녁 먹을 시간입니다.')
+      }
+    </script>
+  </head> 
+  <body>  
+  </body>
+</html>
+<!-- 파이썬의 elif와 같은 else if이다. 
+  사실 파이썬에서도 else if를 쓸 수는 있으나 elif에 밀려서 잘 쓰지 않는다. -->

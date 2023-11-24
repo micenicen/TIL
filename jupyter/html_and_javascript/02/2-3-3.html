@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <script>
+      // 숫자를 입력받습니다.
+      const rawInput = prompt('inch 단위의 숫자를 입력해주세요.')
+
+      // 입력받은 데이터를 숫자형으로 변경하고 cm 단위로 변경합니다.
+      const inch = Number(rawInput)
+      const cm = inch * 2.54
+
+      // 출력합니다.
+      alert(`${inch}inch는 ${cm}cm 입니다.`)
+    </script>
+  </head> 
+  <body>  
+  </body>
+</html>
+<!-- 숫자를 먼저 입력받을 것이다.
+넘버는 숫자로 인식하게 된다. 인치로 선언된다. 
+cm는 인치와 곱해져서 나올 것이다. 
+마지막은 인치와 센티미터를 같이 추가한 것이다.  
+파이썬의 포맷팅은 여기서는 백쿼트로 표현한다. -->
