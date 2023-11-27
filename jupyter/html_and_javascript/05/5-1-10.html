@@ -7,14 +7,23 @@
         // 변수 선언하기
         let output
         let items
+        document.write(first+":"+"<br>")
 
         // 매개변수의 자료형에 따라 조건 분기하기
+        // 만약 first변수가 배열이라면 첫번째를 적용한다.
+        // 만약 first변수가 숫자라면 아웃풋은 rests가 나오게 된다. 
         if (Array.isArray(first)) {
           output = first[0]
+          document.write(output+":"+"<br>")
           items = first
-        } else if (typeof(first) === 'number') {
+          document.write(first+":"+"<br>")
+        } 
+        
+        else if (typeof(first) === 'number') {
           output = first
+          document.write(output+":"+"<br>")
           items = rests
+          document.write(rests+":"+"<br>")
         }
 
         // 이전 절에서 살펴보았던 최솟값 구하는 공식
@@ -28,6 +37,7 @@
 
       console.log(`min(배열): ${min([52,273,32,103,275,24,57])}`)
       console.log(`min(숫자, ...): ${min(52,273,32,103,275,24,57)}`)
+      // 대괄호로 씌인 특징을 가진 배열과 대괄호 없이 min으로만 표시된 숫자의 차이를 확인한 것이다.
     </script>
   </head>
   <body></body>

@@ -3,12 +3,16 @@
   <head>
     <title></title>
     <script>
+      console.log(new Date().getFullYear())
       function isLeapYear(year=new Date().getFullYear()) {
         console.log(`매개변수 year: ${year}`)
         return (year % 4 === 0) && (year % 100 !== 0) || (year % 400 === 0)
       }
 
       console.log(`올해는 윤년일까? === ${isLeapYear()}`)
+      // 올해의 시간은 컴퓨터의 시간을 토대로 확인하였다. 
+      // 컴퓨터의 시간을 기준으로 올해가 윤년이 아니다. 2023년이기 때문이다.
+      // 2024년에는 윤년으로 기록될 것이다. 
     </script>
   </head>
   <body></body>
