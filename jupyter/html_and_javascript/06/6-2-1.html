@@ -3,6 +3,14 @@
   <head>
     <title></title>
     <script>
+      const b = new Number(100)
+      console.log(b)
+      b.점수 = 'A'
+      console.log(b)
+
+      const c = new String('안녕하세요')
+      console.log(c)
+
       // power() 메소드를 추가합니다.
       Number.prototype.power = function (n = 2) {
         return this.valueOf() ** n
@@ -17,3 +25,14 @@
   </head>
   <body></body>
 </html>
+<!-- 넘버는 숫자 자료형을 정의할 때 사용한다. 
+기본 자료형은 문자형, 숫자형, 불린형으로 되어있다. 
+기본 자료형은 속성을 가질 수 없다. const c = 100하면 100이라는 숫자가 선언되었을 뿐이다.
+c.이름 = '홍길동'이 불가능하다는 뜻이다. 객체가 아니기 때문이다. 
+만약 const b = new Number(100)으로 정의해본다면? 이것은 객체이다. 
+객체에는 요소추가가 가능하다.  
+string속성도 추가 가능하다. 요소 인덱스가 0~4까지 붙어서 나올 것이다. 
+
+파워 메서드는 숫자만큼 제곱하는 함수이다. 디폴트는 2이다. 
+즉 콘솔로그 3은 12의 제곱, 세제곱, 네제곱을 나타낸다. 
+-->
