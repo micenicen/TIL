@@ -35,15 +35,20 @@ class FaceRecognitionApp:
         faces = self.face_cascade.detectMultiScale(gray, 1.1, 4)
 
         for (x, y, w, h) in faces:
-            cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
-            expression = "Happy" if w * h > 50000 else "Neutral"
-            cv2.putText(frame, expression, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
+            # Only draw a rectangle and capture the face if both width and height are greater than 100 pixels
+            if w > 100 and h > 100:
+                cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
+                expression = "show expression"
+                cv2.putText(frame, expression, (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
 
-            # 촬영 간격 확인 및 얼굴 촬영
-            if time.time() - self.last_capture_time > self.capture_interval:
-                face_img = frame[y:y + h, x:x + w]
-                self.capture_face(face_img)
-                self.last_capture_time = time.time()
+                # Check the capture interval and capture the face
+                if time.time() - self.last_capture_time > self.capture_interval:
+                    face_img = frame[y:y + h, x:x + w]
+                    self.capture_face(face_img)
+                    self.last_capture_time = time.time()
+            else:
+                # No rectangle is drawn for faces smaller than the specified size
+                pass
 
         cv2image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGBA)
         img = Image.fromarray(cv2image)
